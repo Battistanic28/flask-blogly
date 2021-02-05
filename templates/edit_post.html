@@ -1,0 +1,15 @@
+{% extends "post.html" %}
+
+{% block content %}
+<body>
+    <h3>Edit Post</h3>
+    <form method="POST">
+        <p>Title:      <input value="{{post.title}}" name="edit_title"></p>
+        <p>Post Content:      <input  value="{{post.content}}" name="edit_post_content"></p>
+        {% for tag in tags %}
+        <input type="checkbox" name="edit_tag_list" value="{{tag.id}}"> {{tag.name}}<br>
+        {% endfor %}
+        <button class="btn btn-primary">Submit</button>
+        <a class="btn btn-danger" href="/post/{{post.id}}">Cancel</a>
+    </form>
+{% endblock %}

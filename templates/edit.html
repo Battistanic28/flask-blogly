@@ -1,0 +1,12 @@
+{% extends "profile.html" %}
+
+{% block content %}
+<body>
+    <h3>Edit user</h3>
+    <form method="POST">
+        <p>First Name:      <input value="{{user.f_name}}" name="edit_f_name"></p>
+        <p>Last Name:      <input  value="{{user.l_name}}" name="edit_l_name"></p>
+        <p>Profile Image URL:      <input  value="{{user.img_url}}" name="edit_profile_img"></p>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

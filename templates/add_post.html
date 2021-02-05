@@ -1,0 +1,15 @@
+{% extends "profile.html" %}
+
+{% block content %}
+<body>
+    <h3>Add post</h3>
+    <form method="POST">
+        <p>Title:      <input name="post_title"></p>
+        <p>Post content:      <input name="post_content"></p>
+        {% for tag in tags %}
+        <input type="checkbox" name="tag_list" value="{{tag.id}}"> {{tag.name}}<br>
+        {% endfor %}
+        <a class="btn btn-danger" href="/users/{{user.id}}">Cancel</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

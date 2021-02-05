@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{user.f_name}} {{user.l_name}}</h1>
+    <img class="img-thumbnail" width="300" src="{{user.img_url}}" alt="profile image">
+    <div>
+    <a class="btn btn-primary" href="/users/{{user.id}}/edit">Edit</a>
+    <a class="btn btn-danger" href="/users/{{user.id}}/delete">Delete</a>
+
+    </div>
+    <div>
+        <h3>User Posts</h3>
+        {% for post in posts %}
+        <ul>
+            <li>
+                <a href="/post/{{post.id}}">{{post.title}}</a>
+            </li>
+        </ul>
+        
+        {% endfor %}
+        <a class="btn btn-primary" href="/users/{{user.id}}/posts/new">Add post</a>
+    </div>
+</body>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+</html>
